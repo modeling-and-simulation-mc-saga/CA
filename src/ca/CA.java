@@ -45,11 +45,11 @@ public class CA extends AbstractCA{
         int newRuleMap[] = new int[8];
         for (int i = 0; i < 8; i++) {//checking ruleNumber from lower bits
             //lowest bit
-            int r = 1 & ruleNumber;
+
             //store the value at newRuleMap[i]
-            newRuleMap[i] = r;
+
             //right bit shift (divide by 2)
-            ruleNumber = ruleNumber >> 1;
+
         }
         return newRuleMap;
     }
