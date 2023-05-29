@@ -20,6 +20,7 @@ public class CAFrame extends javax.swing.JFrame {
     private final Random random;
     private CA ca;
     private double p = 0.6;
+    private int rule=90;
 
     /**
      * Creates new form CAFrame
@@ -41,8 +42,8 @@ public class CAFrame extends javax.swing.JFrame {
                     drawPanel.stop();
                     drawPanel.setT(0);
                     drawPanel.clear();
-                    int k = (Integer) ruleSelect.getSelectedItem();
-                    ca = new CA(n, k,random);
+                    rule = (Integer) ruleSelect.getSelectedItem();
+                    ca = new CA(n, rule,random);
                     drawPanel.setCA(ca);
                 });
         menuBar.add(ruleSelect);
@@ -148,7 +149,10 @@ public class CAFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_quitActionPerformed
 
     private void startSingleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSingleActionPerformed
+        drawPanel.stop();
+        ca = new CA(n, rule,random);
         ca.initialSingle();
+        drawPanel.setCA(ca);
         drawPanel.setT(0);
         drawPanel.clear();
         drawPanel.start();
@@ -156,7 +160,10 @@ public class CAFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_startSingleActionPerformed
 
     private void startRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startRandomActionPerformed
+        drawPanel.stop();
+        ca = new CA(n, rule,random);
         ca.initialize(p);
+        drawPanel.setCA(ca);
         drawPanel.setT(0);
         drawPanel.clear();
         drawPanel.start();
